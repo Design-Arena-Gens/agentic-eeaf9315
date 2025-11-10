@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horus Music ? Auto?Generated Video</title>
+  <meta name="description" content="Automatically generate a Horus Music themed video with audio, rendered in your browser and downloadable as WebM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Horus Music</h1>
+      <p class="tagline">An auto?generated audio?visual piece, rendered entirely in your browser.</p>
+    </header>
+
+    <section class="stage" aria-live="polite">
+      <div class="player">
+        <canvas id="stageCanvas" width="1280" height="720" aria-label="Rendering canvas" role="img"></canvas>
+        <video id="resultVideo" controls playsinline hidden aria-label="Generated video"></video>
+        <div id="overlay" class="overlay">
+          <div class="spinner" aria-hidden="true"></div>
+          <div class="status">
+            <strong id="statusLabel">Preparing?</strong>
+            <div id="progressBar" class="progress"><span style="width:0%"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="generateBtn" class="btn primary">Generate Video</button>
+        <a id="downloadLink" class="btn" download="horus-music.webm" hidden>Download Video (WebM)</a>
+        <button id="replayBtn" class="btn" hidden>Replay</button>
+      </div>
+      <noscript>
+        <p class="noscript">This experience requires JavaScript to render the video.</p>
+      </noscript>
+    </section>
+
+    <section class="about">
+      <h2>About this piece</h2>
+      <p>
+        This short video is a generative tribute to Horus ? the falcon?headed symbol of
+        vision, protection, and the sky. Visuals are drawn with Canvas; music is synthesized with WebAudio. The
+        MediaRecorder API captures both into a single downloadable video.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <small>? <span id="year"></span> Horus Music ? Generated locally on your device.</small>
+    </footer>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

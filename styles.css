@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #0a0e12;
+  --bg-2: #0f1620;
+  --fg: #e9f0ff;
+  --muted: #a9b4c7;
+  --brand: #22c1c3;
+  --brand-2: #fdbb2d;
+  --accent: #9b5de5;
+  --ok: #12d48a;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: radial-gradient(1200px 800px at 15% 10%, #122032 0%, var(--bg) 50%),
+              radial-gradient(800px 600px at 85% 20%, #1b1530 0%, var(--bg-2) 50%),
+              linear-gradient(180deg, #07090c 0%, #0a0e12 100%);
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; }
+.header { text-align: center; margin-bottom: 24px; }
+.header h1 { font-size: 40px; margin: 0 0 8px; letter-spacing: 0.5px; }
+.tagline { margin: 0; color: var(--muted); }
+.stage { margin-top: 24px; }
+.player { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: 16px; overflow: hidden; background: #04070b; box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04); }
+.player canvas, .player video { width: 100%; height: 100%; display: block; }
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.35); backdrop-filter: blur(2px); }
+.spinner { width: 44px; height: 44px; border-radius: 50%; border: 4px solid rgba(255,255,255,.18); border-top-color: var(--brand); animation: spin 1s linear infinite; margin-bottom: 12px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.status { text-align: center; color: var(--muted); }
+.progress { margin-top: 8px; width: 280px; max-width: 70vw; height: 6px; background: rgba(255,255,255,.1); border-radius: 999px; overflow: hidden; }
+.progress span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-2)); width: 0%; transition: width .2s ease; }
+.actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.btn { appearance: none; border: none; background: rgba(255,255,255,.08); color: var(--fg); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600; letter-spacing: .3px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #0b0f14; }
+.btn:hover { filter: brightness(1.05); }
+.about { margin-top: 28px; color: var(--muted); line-height: 1.7; }
+.footer { margin-top: 28px; color: var(--muted); text-align: center; }
+.noscript { color: #ffb3b3; font-weight: 600; }
+
+@media (max-width: 640px) {
+  .header h1 { font-size: 30px; }
+}
